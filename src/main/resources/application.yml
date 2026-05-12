@@ -1,0 +1,24 @@
+spring:
+  config:
+    import: optional:file:.env.properties
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: ${JPA_DDL_AUTO}
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        # Penting: Karena SQL DDL Anda menggunakan camelCase persis seperti "userId",
+        # strategi penamaan ini memastikan Hibernate tidak mengubahnya menjadi snake_case otomatis.
+        physical_naming_strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+jwt:
+  secret: ${JWT_SECRET}
+  expiration: ${JWT_EXPIRATION}
+server:
+  port: 8080

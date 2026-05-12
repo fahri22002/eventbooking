@@ -43,6 +43,7 @@ bin/
 
 # Environment variables & Secrets
 .env
+.env.properties
 application-secret.yml
 
 # Logs

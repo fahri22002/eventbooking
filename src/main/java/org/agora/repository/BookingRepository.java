@@ -1,0 +1,10 @@
+package org.agora.repository;
+
+import org.agora.entity.Booking;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface BookingRepository extends JpaRepository<Booking, String> {
+    // Nanti kita akan tambahkan method untuk mengecek double booking (FR-14)
+}

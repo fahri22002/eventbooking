@@ -86,20 +86,26 @@ public class EventService {
         return mapToResponse(eventRepository.save(event));
     }
 
-    @Transactional
-    public void deleteEvent(String eventId) {
-        Event event = eventRepository.findById(eventId)
-                .orElseThrow(() -> new RuntimeException("Event not found"));
-
-        validateOrganizer(event);
-
-        eventRepository.delete(event);
-    }
-
     private void validateOrganizer(Event event) {
         String currentUsername = SecurityContextHolder.getContext().getAuthentication().getName();
         if (!event.getCreator().getEmail().equals(currentUsername)) {
             throw new RuntimeException("You are not authorized to modify this event");
         }
+    }
+
+    @Transactional
+    public void deactivateEvent(String eventId) {
+        Event event = eventRepository.findById(eventId)
+                .orElseThrow(() -> new RuntimeException("Event not found"));
+
+        validateOrganizer(event);
+
+        if (!event.getIsActive()) {
+            throw new RuntimeException("Event is already inactive");
+        }
+
+        event.setIsActive(false);
+
+        eventRepository.save(event);
     }
 }

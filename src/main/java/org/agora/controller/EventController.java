@@ -20,13 +20,11 @@ public class EventController {
 
     private final EventService eventService;
 
-    // FR-03: Create Event
     @PostMapping
     public ResponseEntity<EventResponse> createEvent(@Valid @RequestBody EventRequest request) {
         return ResponseEntity.status(HttpStatus.CREATED).body(eventService.createEvent(request));
     }
 
-    // FR-05: Get All Events with Pagination & Sorting
     @GetMapping
     public ResponseEntity<Page<EventResponse>> getAllEvents(
             @PageableDefault(sort = "dateTime", direction = Sort.Direction.ASC, size = 10) Pageable pageable
@@ -34,7 +32,6 @@ public class EventController {
         return ResponseEntity.ok(eventService.getAllEvents(pageable));
     }
 
-    // FR-04: Update Event
     @PutMapping("/{id}")
     public ResponseEntity<EventResponse> updateEvent(
             @PathVariable("id") String id,
@@ -43,10 +40,9 @@ public class EventController {
         return ResponseEntity.ok(eventService.updateEvent(id, request));
     }
 
-    // FR-06: Delete Event
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteEvent(@PathVariable("id") String id) {
-        eventService.deleteEvent(id);
-        return ResponseEntity.noContent().build();
+    public ResponseEntity<Void> deactivateEvent(@PathVariable("id") String id) {
+        eventService.deactivateEvent(id);
+        return ResponseEntity.noContent().build(); // Mengembalikan 204 No Content
     }
 }

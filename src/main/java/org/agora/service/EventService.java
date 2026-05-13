@@ -70,6 +70,25 @@ public class EventService {
                 .map(this::mapToResponse);
     }
 
+    @Transactional(readOnly = true)
+    public EventResponse getDetailEvent(String id) {
+        Event event = eventRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+        return new EventResponse(
+                event.getEventId(),
+                event.getTitle(),
+                event.getDescription(),
+                event.getLocation(),
+                event.getDateTime(),
+                event.getSeatQuota(),
+                event.getSeatsAvailable(),
+                event.getPrice(),
+                event.getIsActive(),
+                event.getCreator().getName()
+        );
+    }
+
     @Transactional
     public EventResponse updateEvent(String eventId, EventRequest request) {
         Event event = eventRepository.findById(eventId)

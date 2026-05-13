@@ -1,7 +1,7 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '3.2.5' // Ini wajib ada (kamu bisa ubah versinya sesuai kebutuhan, misal 3.2.5 atau 3.3.0)
-    id 'io.spring.dependency-management' version '1.1.4' // Ini yang mengatur otomatisasi versi dependensi
+    id 'org.springframework.boot' version '3.2.5'
+    id 'io.spring.dependency-management' version '1.1.4'
 }
 
 group = 'org.agora'
@@ -29,7 +29,7 @@ dependencies {
     runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.5'
     runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.5'
 
-    // Tools (Lombok & DevTools - Opsional tapi sangat disarankan)
+    // Tools (Lombok & DevTools)
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'

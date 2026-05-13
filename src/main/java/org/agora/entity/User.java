@@ -34,13 +34,8 @@ public class User implements UserDetails {
     @Column(name = "\"createAt\"")
     private ZonedDateTime createAt;
 
-    // ==========================================================
-    // METHOD WAJIB DARI SPRING SECURITY (USERDETAILS)
-    // ==========================================================
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        // Kita kosongkan karena tidak ada pembagian role Admin/User
         return List.of();
     }
 

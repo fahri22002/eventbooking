@@ -35,28 +35,21 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         final String jwt;
         final String userEmail;
 
-        // 1. Cek apakah ada header Authorization yang berawalan "Bearer "
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
             filterChain.doFilter(request, response);
             return;
         }
 
-        // 2. Ekstrak token (buang tulisan "Bearer " di depannya)
         jwt = authHeader.substring(7);
 
-        // 3. Ekstrak email dari token
         userEmail = jwtService.extractUsername(jwt);
 
-        // 4. Jika token ada email-nya, dan user belum terautentikasi di Context
         if (userEmail != null && SecurityContextHolder.getContext().getAuthentication() == null) {
 
-            // Ambil data user dari database (via UserDetailsService)
             UserDetails userDetails = this.userDetailsService.loadUserByUsername(userEmail);
 
-            // 5. Validasi tokennya
             if (jwtService.isTokenValid(jwt, userDetails.getUsername())) {
 
-                // 6. Buat objek otentikasi
                 UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
                         userDetails,
                         null,
@@ -67,12 +60,10 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                         new WebAuthenticationDetailsSource().buildDetails(request)
                 );
 
-                // 7. Simpan otentikasi tersebut ke dalam Security Context
                 SecurityContextHolder.getContext().setAuthentication(authToken);
             }
         }
 
-        // Lanjutkan request ke tahap berikutnya
         filterChain.doFilter(request, response);
     }
 }

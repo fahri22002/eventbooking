@@ -43,7 +43,6 @@ public class AuthService {
     }
 
     public AuthResponse login(LoginRequest request) {
-        // Proses otentikasi oleh Spring Security
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         request.getEmail(),
@@ -51,7 +50,6 @@ public class AuthService {
                 )
         );
 
-        // Jika berhasil, cari user dan generate token
         var user = userRepository.findByEmail(request.getEmail())
                 .orElseThrow(() -> new RuntimeException("User not found"));
 

@@ -16,7 +16,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class User implements UserDetails { // <-- Tambahkan implements UserDetails
+public class User implements UserDetails {
 
     @Id
     @Column(name = "\"userId\"", nullable = false)

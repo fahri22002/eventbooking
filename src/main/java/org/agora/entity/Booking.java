@@ -14,26 +14,21 @@ import java.time.ZonedDateTime;
 public class Booking {
 
     @Id
-    @Column(name = "\"bookingId\"", nullable = false)
     private String bookingId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "\"eventId\"", referencedColumnName = "\"eventId\"", nullable = false)
+    @JoinColumn(name = "eventId")
     private Event event;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "\"userId\"", referencedColumnName = "\"userId\"", nullable = false)
+    @JoinColumn(name = "userId")
     private User user;
 
-    @Column(name = "\"createAt\"")
     private ZonedDateTime createAt;
 
-    @Column(name = "quantity")
-    private Integer quantity;
+    private int quantity;
 
-    @Column(name = "\"bookingReference\"", nullable = false, unique = true)
     private String bookingReference;
 
-    @Column(name = "status")
     private String status;
 }

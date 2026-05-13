@@ -69,3 +69,7 @@ The Service layer handles the core orchestration of the application.
 ### Exception Handling
 A centralized `@RestControllerAdvice` is implemented to intercept and format all exceptions. This guarantees that API clients receive consistent and predictable JSON error structures, including field-level validation details for invalid request payloads.
 
+### Event Management Logic
+* **Context-Aware Creation:** Event creation automatically associates the event with the currently authenticated user by extracting their identity from the Security Context.
+* **Validation:** Strict future-date validation and capacity constraints are enforced at the DTO level.
+

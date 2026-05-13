@@ -29,7 +29,7 @@ public class Booking {
     private ZonedDateTime createAt;
 
     @Column(name = "quantity")
-    private Integer quantity;
+    private int quantity;
 
     @Column(name = "\"bookingReference\"", nullable = false, unique = true)
     private String bookingReference;

@@ -8,9 +8,7 @@ import java.util.Optional;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, String> {
-    // Dibutuhkan untuk FR-02 (Login)
     Optional<User> findByEmail(String email);
 
-    // Dibutuhkan untuk FR-01 (Validasi email unik saat registrasi)
     boolean existsByEmail(String email);
 }

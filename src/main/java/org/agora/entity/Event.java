@@ -31,8 +31,8 @@ public class Event {
     @Column(name = "location")
     private String location;
 
-    @Column(name = "datetime")
-    private ZonedDateTime datetime;
+    @Column(name = "\"dateTime\"")
+    private ZonedDateTime dateTime;
 
     @Column(name = "\"seatQuota\"")
     private Integer seatQuota;
@@ -41,7 +41,7 @@ public class Event {
     private Integer seatsAvailable;
 
     @Column(name = "price")
-    private BigDecimal price; // BigDecimal lebih akurat untuk nominal uang daripada Double/Float
+    private BigDecimal price;
 
     @Column(name = "\"isActive\"")
     private Boolean isActive;

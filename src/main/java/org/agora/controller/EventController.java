@@ -32,6 +32,11 @@ public class EventController {
         return ResponseEntity.ok(eventService.getAllEvents(pageable));
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<EventResponse> getDetail(@PathVariable("id") String id) {
+        return ResponseEntity.ok(eventService.getDetailEvent(id));
+    }
+
     @PutMapping("/{id}")
     public ResponseEntity<EventResponse> updateEvent(
             @PathVariable("id") String id,

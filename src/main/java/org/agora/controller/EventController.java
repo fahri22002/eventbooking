@@ -12,6 +12,9 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.time.ZonedDateTime;
 
 @RestController
 @RequestMapping("/api/events")
@@ -48,6 +51,28 @@ public class EventController {
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deactivateEvent(@PathVariable("id") String id) {
         eventService.deactivateEvent(id);
-        return ResponseEntity.noContent().build(); // Mengembalikan 204 No Content
+        return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/my-events")
+    public ResponseEntity<Page<EventResponse>> getMyEvents(
+            @PageableDefault(sort = "createAt", direction = Sort.Direction.DESC) Pageable pageable
+    ) {
+        return ResponseEntity.ok(eventService.getMyEvents(pageable));
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<Page<EventResponse>> searchEvents(
+            @RequestParam(required = false) String title,
+            @RequestParam(required = false) String location,
+            @RequestParam(required = false) String creatorName,
+            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) ZonedDateTime startDate,
+            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) ZonedDateTime endDate,
+            @RequestParam(defaultValue = "false") boolean showPast,
+            @PageableDefault(sort = "dateTime", direction = Sort.Direction.ASC) Pageable pageable
+    ) {
+        return ResponseEntity.ok(eventService.searchEvents(
+                title, location, creatorName, startDate, endDate, showPast, pageable
+        ));
     }
 }

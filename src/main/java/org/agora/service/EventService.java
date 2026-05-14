@@ -127,4 +127,37 @@ public class EventService {
 
         eventRepository.save(event);
     }
+
+    @Transactional(readOnly = true)
+    public Page<EventResponse> getMyEvents(Pageable pageable) {
+        String email = SecurityContextHolder.getContext().getAuthentication().getName();
+        return eventRepository.findByCreator_Email(email, pageable)
+                .map(this::mapToResponse);
+    }
+
+    @Transactional(readOnly = true)
+    public Page<EventResponse> searchEvents(
+            String title, String location, String creatorName,
+            ZonedDateTime startDate, ZonedDateTime endDate,
+            boolean showPast, Pageable pageable) {
+
+        String safeTitle = (title == null) ? "" : title;
+        String safeLocation = (location == null) ? "" : location;
+        String safeCreatorName = (creatorName == null) ? "" : creatorName;
+
+        System.out.println("{[[[[LOGGG"+startDate);
+        ZonedDateTime now = ZonedDateTime.now();
+        ZonedDateTime safeStartDate = (startDate != null) ? startDate : now;
+        ZonedDateTime safeEndDate = (endDate != null) ? endDate : now.plusYears(10);
+        System.out.println("[LOG] safe Start Date = "+safeStartDate);
+        System.out.println("[LOG] now = "+now);
+        System.out.println("[LOG] safe End Date = "+safeEndDate);
+
+        return eventRepository.searchEvents(
+                safeTitle, safeLocation, safeCreatorName, showPast, now,
+                safeStartDate,
+                safeEndDate,
+                pageable
+        ).map(this::mapToResponse);
+    }
 }

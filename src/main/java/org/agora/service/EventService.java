@@ -7,6 +7,7 @@ import org.agora.entity.Event;
 import org.agora.entity.User;
 import org.agora.repository.EventRepository;
 import org.agora.repository.UserRepository;
+import org.agora.exception.ResourceNotFoundException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -73,7 +74,7 @@ public class EventService {
     @Transactional(readOnly = true)
     public EventResponse getDetailEvent(String id) {
         Event event = eventRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("User not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Event not found with ID: " + id));
 
         return new EventResponse(
                 event.getEventId(),
@@ -145,13 +146,9 @@ public class EventService {
         String safeLocation = (location == null) ? "" : location;
         String safeCreatorName = (creatorName == null) ? "" : creatorName;
 
-        System.out.println("{[[[[LOGGG"+startDate);
         ZonedDateTime now = ZonedDateTime.now();
         ZonedDateTime safeStartDate = (startDate != null) ? startDate : now;
         ZonedDateTime safeEndDate = (endDate != null) ? endDate : now.plusYears(10);
-        System.out.println("[LOG] safe Start Date = "+safeStartDate);
-        System.out.println("[LOG] now = "+now);
-        System.out.println("[LOG] safe End Date = "+safeEndDate);
 
         return eventRepository.searchEvents(
                 safeTitle, safeLocation, safeCreatorName, showPast, now,

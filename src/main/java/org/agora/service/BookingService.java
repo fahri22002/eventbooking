@@ -54,7 +54,20 @@ public class BookingService {
             throw new RuntimeException("Booking failed: Not enough seats available or event not found.");
         }
 
-        String refCode = "BKG-" + UUID.randomUUID().toString().substring(0, 8).toUpperCase();
+        String refCode;
+        boolean isUnique = false;
+        // Format: Using TimeStamp
+        java.time.format.DateTimeFormatter formatter = java.time.format.DateTimeFormatter.ofPattern("yyMMddHHmmss");
+
+        do {
+            String timestamp = ZonedDateTime.now().format(formatter);
+            String randomPart = UUID.randomUUID().toString().substring(0, 6).toUpperCase();
+            refCode = "BKG-" + timestamp + "-" + randomPart;
+
+            if (!bookingRepository.existsByBookingReference(refCode)) {
+                isUnique = true;
+            }
+        } while (!isUnique);
 
         Booking booking = Booking.builder()
                 .bookingId(UUID.randomUUID().toString())
@@ -105,6 +118,13 @@ public class BookingService {
 
         if ("CANCELED".equals(booking.getStatus())) {
             throw new RuntimeException("This booking is already canceled");
+        }
+
+        ZonedDateTime eventTime = booking.getEvent().getDateTime();
+        ZonedDateTime cancelDeadline = eventTime.minusHours(24);
+
+        if (ZonedDateTime.now().isAfter(cancelDeadline)) {
+            throw new RuntimeException("Cancellation is only allowed up to 24 hours before the event starts.");
         }
 
         booking.setStatus("CANCELED");

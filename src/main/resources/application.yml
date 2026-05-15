@@ -14,9 +14,10 @@ spring:
     properties:
       hibernate:
         format_sql: true
-        # Penting: Karena SQL DDL Anda menggunakan camelCase persis seperti "userId",
-        # strategi penamaan ini memastikan Hibernate tidak mengubahnya menjadi snake_case otomatis.
         physical_naming_strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+
+  flyway:
+    enabled: true
 jwt:
   secret: ${JWT_SECRET}
   expiration: ${JWT_EXPIRATION}

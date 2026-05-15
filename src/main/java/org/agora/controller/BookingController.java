@@ -32,9 +32,9 @@ public class BookingController {
         return ResponseEntity.ok(bookingService.getUserBookings(pageable));
     }
 
-    @PutMapping("/{id}/cancel")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> cancelBooking(@PathVariable("id") String id) {
         bookingService.cancelBooking(id);
-        return ResponseEntity.noContent().build(); // Mengembalikan 204 No Content
+        return ResponseEntity.noContent().build();
     }
 }

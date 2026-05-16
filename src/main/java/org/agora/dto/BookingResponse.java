@@ -5,6 +5,7 @@ import java.time.ZonedDateTime;
 
 public record BookingResponse(
         String bookingId,
+        String eventId,
         String eventTitle,
         String bookingReference,
         int quantity,

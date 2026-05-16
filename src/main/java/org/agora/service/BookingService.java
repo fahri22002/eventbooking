@@ -6,6 +6,8 @@ import org.agora.dto.BookingResponse;
 import org.agora.entity.Booking;
 import org.agora.entity.Event;
 import org.agora.entity.User;
+import org.agora.exception.ForbiddenAccessException;
+import org.agora.exception.ResourceNotFoundException;
 import org.agora.repository.BookingRepository;
 import org.agora.repository.EventRepository;
 import org.agora.repository.UserRepository;
@@ -96,6 +98,7 @@ public class BookingService {
         BigDecimal totalHarga = event.getPrice().multiply(BigDecimal.valueOf(booking.getQuantity()));
         return new BookingResponse(
                 booking.getBookingId(),
+                event.getEventId(),
                 event.getTitle(),
                 booking.getBookingReference(),
                 booking.getQuantity(),
@@ -109,11 +112,11 @@ public class BookingService {
     @Transactional
     public void cancelBooking(String bookingId) {
         Booking booking = bookingRepository.findById(bookingId)
-                .orElseThrow(() -> new RuntimeException("Booking not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Booking not found"));
 
         String currentUserEmail = SecurityContextHolder.getContext().getAuthentication().getName();
         if (!booking.getUser().getEmail().equals(currentUserEmail)) {
-            throw new RuntimeException("You are not authorized to cancel this booking");
+            throw new ForbiddenAccessException("You are not authorized to cancel this booking");
         }
 
         if ("CANCELED".equals(booking.getStatus())) {

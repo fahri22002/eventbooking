@@ -14,6 +14,8 @@ import java.time.ZonedDateTime;
 @Repository
 public interface EventRepository extends JpaRepository<Event, String> {
 
+    Page<Event> findByIsActiveTrueAndDateTimeAfter(ZonedDateTime dateTime, Pageable pageable);
+
     @Modifying
     @Query("UPDATE Event e SET e.seatsAvailable = e.seatsAvailable - :qty WHERE e.eventId = :id AND e.seatsAvailable >= :qty")
     int decreaseSeatQuota(@Param("id") String eventId, @Param("qty") int quantity);

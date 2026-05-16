@@ -8,6 +8,7 @@ import org.agora.entity.User;
 import org.agora.repository.EventRepository;
 import org.agora.repository.UserRepository;
 import org.agora.exception.ResourceNotFoundException;
+import org.agora.exception.ForbiddenAccessException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -67,7 +68,7 @@ public class EventService {
 
     @Transactional(readOnly = true)
     public Page<EventResponse> getAllEvents(Pageable pageable) {
-        return eventRepository.findAll(pageable)
+        return eventRepository.findByIsActiveTrueAndDateTimeAfter(ZonedDateTime.now(), pageable)
                 .map(this::mapToResponse);
     }
 
@@ -93,9 +94,17 @@ public class EventService {
     @Transactional
     public EventResponse updateEvent(String eventId, EventRequest request) {
         Event event = eventRepository.findById(eventId)
-                .orElseThrow(() -> new RuntimeException("Event not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Event not found with ID: " + eventId));
 
         validateOrganizer(event);
+
+        if (!event.getIsActive()) {
+            throw new RuntimeException("Cannot update an inactive event");
+        }
+
+        if (event.getDateTime().isBefore(ZonedDateTime.now())) {
+            throw new RuntimeException("Cannot update an event that has already passed");
+        }
 
         event.setTitle(request.title());
         event.setDescription(request.description());
@@ -106,17 +115,10 @@ public class EventService {
         return mapToResponse(eventRepository.save(event));
     }
 
-    private void validateOrganizer(Event event) {
-        String currentUsername = SecurityContextHolder.getContext().getAuthentication().getName();
-        if (!event.getCreator().getEmail().equals(currentUsername)) {
-            throw new RuntimeException("You are not authorized to modify this event");
-        }
-    }
-
     @Transactional
     public void deactivateEvent(String eventId) {
         Event event = eventRepository.findById(eventId)
-                .orElseThrow(() -> new RuntimeException("Event not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Event not found with ID: " + eventId));
 
         validateOrganizer(event);
 
@@ -156,5 +158,12 @@ public class EventService {
                 safeEndDate,
                 pageable
         ).map(this::mapToResponse);
+    }
+
+    private void validateOrganizer(Event event) {
+        String currentUsername = SecurityContextHolder.getContext().getAuthentication().getName();
+        if (!event.getCreator().getEmail().equals(currentUsername)) {
+            throw new ForbiddenAccessException("You are not authorized to modify this event");
+        }
     }
 }

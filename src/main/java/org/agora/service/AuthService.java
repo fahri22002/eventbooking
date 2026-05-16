@@ -5,6 +5,7 @@ import org.agora.dto.*;
 import org.agora.entity.User;
 import org.agora.repository.UserRepository;
 import org.agora.security.JwtService;
+import org.agora.exception.DuplicateResourceException;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -26,7 +27,7 @@ public class AuthService {
     @Transactional
     public UserProfileResponse register(RegisterRequest request) {
         if (userRepository.existsByEmail(request.getEmail())) {
-            throw new RuntimeException("Email already exists");
+            throw new DuplicateResourceException("Email already exists");
         }
 
         User user = User.builder()

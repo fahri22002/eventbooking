@@ -11,7 +11,10 @@ public class RegisterRequest {
     private String name;
 
     @NotBlank(message = "Email cannot be empty")
-    @Email(message = "Invalid email format")
+    @Email(
+            regexp = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
+            message = "Invalid email format"
+    )
     private String email;
 
     @NotBlank(message = "Password cannot be empty")

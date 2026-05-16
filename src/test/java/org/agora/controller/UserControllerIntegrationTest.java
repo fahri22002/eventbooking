@@ -18,6 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.hamcrest.Matchers.containsString;
 
 /**
  * Test class for User Controller
@@ -78,5 +79,19 @@ public class UserControllerIntegrationTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.email").value("fahri@agora.com"))
                 .andExpect(jsonPath("$.name").value("fahritest3"));
+    }
+
+    /**
+     * FR-03 : Get User Profile
+     * Fail Case : Without JWT token
+     * @throws Exception
+     */
+    @Test
+    void getProfileCurrentUserFailWithoutJwt () throws Exception {
+        // Act
+        mockMvc.perform(get("/api/user"))
+                // Assert
+                .andExpect(status().isUnauthorized())
+                .andExpect(jsonPath("$.error").value(containsString("Unauthorized")));
     }
 }

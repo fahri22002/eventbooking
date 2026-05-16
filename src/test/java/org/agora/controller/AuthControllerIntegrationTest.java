@@ -74,10 +74,32 @@ class AuthControllerIntegrationTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(request)))
                 // Assert
+                .andExpect(status().isConflict())
+                .andExpect(jsonPath("$.error").value("Conflict"));
+    }
+
+    /**
+     * FR-01 : User Registration Test
+     * Fail Case : Email format is invalid
+     * @throws Exception
+     */
+    @Test
+    void registerE2EFailInvalidEmailFormat() throws Exception {
+        // Arrange
+        registerE2ESuccess();
+        RegisterRequest request = new RegisterRequest();
+        request.setName("User Test Same Email");
+        request.setEmail("e2etest@com");
+        request.setPassword("pasword0986");
+
+        // Act
+        mockMvc.perform(post("/api/auth/register")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(request)))
+                // Assert
                 .andExpect(status().isBadRequest())
                 .andExpect(jsonPath("$.error").value("Bad Request"));
     }
-
 
     /**
      * FR-02 : User Login

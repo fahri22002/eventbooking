@@ -90,6 +90,36 @@ class BookingControllerIntegrationTest {
     }
 
     /**
+     * Helper to login with another email
+     * @throws Exception
+     * @return JWT
+     */
+    String loginAnotherEmail() throws Exception {
+        // Register
+        RegisterRequest regRequest = new RegisterRequest();
+        regRequest.setName("fahritest3");
+        regRequest.setEmail("another@agora.com");
+        regRequest.setPassword("rahasia123");
+
+        mockMvc.perform(post("/api/auth/register")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(regRequest)));
+
+        // Login
+        LoginRequest loginRequest = new LoginRequest();
+        loginRequest.setEmail("another@agora.com");
+        loginRequest.setPassword("rahasia123");
+        MvcResult result = mockMvc.perform(post("/api/auth/login")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(loginRequest)))
+                .andReturn();
+
+        // Extract token
+        String newJwt = JsonPath.read(result.getResponse().getContentAsString(), "$.token");
+        return newJwt;
+    }
+
+    /**
      * FR-10 : Create Booking
      * FR-13 : Booking Confirmation
      * Success Case
@@ -159,6 +189,58 @@ class BookingControllerIntegrationTest {
         mockMvc.perform(delete("/api/bookings/" + bookingId)
                         .header("Authorization", "Bearer " + validJwtToken))
                 .andExpect(status().isNoContent());
+    }
+
+    /**
+     * FR-12 : Cancel Booking
+     * Fail Case : Try to cancel other's booking
+     * @throws Exception
+     */
+    @Test
+    void cancelBookingE2EFailForbidden() throws Exception {
+        // Arrange
+        BookingRequest request = new BookingRequest(validEventId, 3);
+        MvcResult bookingResult = mockMvc.perform(post("/api/bookings")
+                        .header("Authorization", "Bearer " + validJwtToken)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(request)))
+                .andReturn();
+
+        // Login new email
+        String newJwt = loginAnotherEmail();
+        // Extract bookingId
+        String bookingId = JsonPath.read(bookingResult.getResponse().getContentAsString(), "$.bookingId");
+
+        // Act and Assert
+        mockMvc.perform(delete("/api/bookings/" + bookingId)
+                        .header("Authorization", "Bearer " + newJwt))
+                .andExpect(status().isForbidden())
+                .andExpect(jsonPath("$.error").value("Forbidden"));
+    }
+
+    /**
+     * FR-12 : Cancel Booking
+     * Fail Case : Booking not found
+     * @throws Exception
+     */
+    @Test
+    void cancelBookingE2EFailNotFound() throws Exception {
+        // Arrange
+        BookingRequest request = new BookingRequest(validEventId, 3);
+        MvcResult bookingResult = mockMvc.perform(post("/api/bookings")
+                        .header("Authorization", "Bearer " + validJwtToken)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(request)))
+                .andReturn();
+
+        // Extract bookingId
+        String bookingId = JsonPath.read(bookingResult.getResponse().getContentAsString(), "$.bookingId");
+
+        // Act and Assert
+        mockMvc.perform(delete("/api/bookings/" + bookingId+"wrong") // wrong bookingId
+                        .header("Authorization", "Bearer " + validJwtToken))
+                .andExpect(status().isNotFound())
+                .andExpect(jsonPath("$.error").value("Not Found"));
     }
 
     /**

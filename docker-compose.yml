@@ -15,7 +15,7 @@ services:
       - postgres_data:/var/lib/postgresql/data
 
   api:
-    image: fahrinizar/agora-eventbooking:v1
+    image: fahrinizar/agora-eventbooking:latest
     container_name: agora-api
     restart: always
     depends_on:

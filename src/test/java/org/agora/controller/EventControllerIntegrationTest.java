@@ -46,19 +46,14 @@ class EventControllerIntegrationTest {
     @BeforeEach
     void setupAuth() throws Exception {
         // Register
-        RegisterRequest regRequest = new RegisterRequest();
-        regRequest.setName("fahritest3");
-        regRequest.setEmail("fahri@agora.com");
-        regRequest.setPassword("rahasia123");
+        RegisterRequest regRequest = new RegisterRequest("fahritest3", "fahri@agora.com", "rahasia123");
 
         mockMvc.perform(post("/api/auth/register")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(regRequest)));
 
         // Login
-        LoginRequest loginRequest = new LoginRequest();
-        loginRequest.setEmail("fahri@agora.com");
-        loginRequest.setPassword("rahasia123");
+        LoginRequest loginRequest = new LoginRequest("fahri@agora.com", "rahasia123");
         MvcResult result = mockMvc.perform(post("/api/auth/login")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(loginRequest)))
@@ -75,19 +70,14 @@ class EventControllerIntegrationTest {
      */
     String loginAnotherEmail() throws Exception {
         // Register
-        RegisterRequest regRequest = new RegisterRequest();
-        regRequest.setName("fahritest3");
-        regRequest.setEmail("another@agora.com");
-        regRequest.setPassword("rahasia123");
+        RegisterRequest regRequest = new RegisterRequest("fahritest3", "another@agora.com", "rahasia123");
 
         mockMvc.perform(post("/api/auth/register")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(regRequest)));
 
         // Login
-        LoginRequest loginRequest = new LoginRequest();
-        loginRequest.setEmail("another@agora.com");
-        loginRequest.setPassword("rahasia123");
+        LoginRequest loginRequest = new LoginRequest("another@agora.com", "rahasia123");
         MvcResult result = mockMvc.perform(post("/api/auth/login")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(loginRequest)))

@@ -23,6 +23,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 
 import java.math.BigDecimal;
+import java.time.ZonedDateTime;
 import java.util.Optional;
 import java.util.List;
 
@@ -211,6 +212,7 @@ class BookingServiceTest {
 
         Event mockEvent = new Event();
         mockEvent.setEventId("event-123");
+        mockEvent.setDateTime(ZonedDateTime.now().plusDays(2));
 
         Booking mockBooking = new Booking();
         mockBooking.setBookingId("booking-999");

@@ -53,16 +53,13 @@ class AuthServiceTest {
     @Test
     void signUpSuccess() {
         // Arrange
-        RegisterRequest request = new RegisterRequest();
-        request.setName("Fahri Nizar");
-        request.setEmail("fahri@agora.com");
-        request.setPassword("rahasia123");
+        RegisterRequest request = new RegisterRequest("Fahri Nizar", "fahri@agora.com", "rahasia123");
 
-        when(userRepository.existsByEmail(request.getEmail())).thenReturn(false);
-        when(passwordEncoder.encode(request.getPassword())).thenReturn("encodedPassword");
+        when(userRepository.existsByEmail(request.email())).thenReturn(false);
+        when(passwordEncoder.encode(request.password())).thenReturn("encodedPassword");
 
         User savedUser = new User();
-        savedUser.setEmail(request.getEmail());
+        savedUser.setEmail(request.email());
         when(userRepository.save(any(User.class))).thenReturn(savedUser);
 
         // Act
@@ -71,10 +68,10 @@ class AuthServiceTest {
         // Assert
         assertNotNull(response);
 
-        assertEquals(request.getName(), response.getName());
-        assertEquals(request.getEmail(), response.getEmail());
-        assertNotNull(response.getUserId());
-        assertNotNull(response.getCreateAt());
+        assertEquals(request.name(), response.name());
+        assertEquals(request.email(), response.email());
+        assertNotNull(response.userId());
+        assertNotNull(response.createAt());
         verify(userRepository, times(1)).save(any(User.class));
     }
 
@@ -85,12 +82,9 @@ class AuthServiceTest {
     @Test
     void signUpEmailAlreadyExistsThrowsException() {
         // Arrange
-        RegisterRequest request = new RegisterRequest();
-        request.setName("Fahri Nizar");
-        request.setEmail("fahri@agora.com");
-        request.setPassword("rahasia123");
+        RegisterRequest request = new RegisterRequest("Fahri Nizar", "fahri@agora.com", "rahasia123");
 
-        when(userRepository.existsByEmail(request.getEmail())).thenReturn(true);
+        when(userRepository.existsByEmail(request.email())).thenReturn(true);
 
         // Act & Assert
         assertThrows(RuntimeException.class, () -> authService.register(request));
@@ -105,15 +99,13 @@ class AuthServiceTest {
     @Test
     void signInSuccess() {
         // Arrange
-        LoginRequest request = new LoginRequest();
-        request.setEmail("fahri@agora.com");
-        request.setPassword("rahasia123");
+        LoginRequest request = new LoginRequest("fahri@agora.com", "rahasia123");
 
         User mockUser = new User();
-        mockUser.setEmail(request.getEmail());
+        mockUser.setEmail(request.email());
         mockUser.setPassword("encodedPassword");
 
-        when(userRepository.findByEmail(request.getEmail())).thenReturn(Optional.of(mockUser));
+        when(userRepository.findByEmail(request.email())).thenReturn(Optional.of(mockUser));
         when(jwtService.generateToken(mockUser.getEmail())).thenReturn("mockJwtToken");
 
         // Act
@@ -121,11 +113,11 @@ class AuthServiceTest {
 
         // Assert
         assertNotNull(response);
-        assertEquals("mockJwtToken", response.getToken());
+        assertEquals("mockJwtToken", response.token());
 
         // Make sure AuthenticationManager was called to validate
         verify(authenticationManager, times(1)).authenticate(
-                new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword())
+                new UsernamePasswordAuthenticationToken(request.email(), request.password())
         );
     }
 
@@ -136,9 +128,7 @@ class AuthServiceTest {
     @Test
     void signInBadCredentialsThrowsException() {
         // Arrange
-        LoginRequest request = new LoginRequest();
-        request.setEmail("fahri@agora.com");
-        request.setPassword("salah password");
+        LoginRequest request = new LoginRequest("fahri@agora.com", "salah password");
 
         // Simulasi ketika AuthenticationManager menolak kredensial
         doThrow(new BadCredentialsException("Bad credentials"))

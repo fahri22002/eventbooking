@@ -8,6 +8,10 @@ import jakarta.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.time.ZonedDateTime;
 
+/**
+ * DTO for incoming event creation and update requests.
+ * Enforces strict input validation, ensuring events are scheduled in the future with valid capacity and pricing.
+ */
 public record EventRequest(
         @NotBlank(message = "Title is required")
         String title,

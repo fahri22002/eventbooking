@@ -14,6 +14,10 @@ import org.springframework.stereotype.Component;
 import java.io.IOException;
 import java.time.ZonedDateTime;
 
+/**
+ * Custom handler for unauthorized access attempts.
+ * Intercepts requests lacking valid JWT authentication and returns a standardized JSON 401 (Unauthorized) error response.
+ */
 @Component
 public class CustomAuthenticationEntryPoint implements AuthenticationEntryPoint {
 

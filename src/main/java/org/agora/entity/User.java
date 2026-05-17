@@ -9,6 +9,10 @@ import java.time.ZonedDateTime;
 import java.util.Collection;
 import java.util.List;
 
+/**
+ * Entity representing a registered user in the system.
+ * Implements {@link UserDetails} to integrate seamlessly with Spring Security for authentication and authorization.
+ */
 @Entity
 @Table(name = "\"User\"")
 @Getter

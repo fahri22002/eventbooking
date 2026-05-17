@@ -3,6 +3,10 @@ package org.agora.dto;
 import java.math.BigDecimal;
 import java.time.ZonedDateTime;
 
+/**
+ * DTO representing a booking confirmation.
+ * Returns comprehensive details about the user's reservation, including the unique reference code.
+ */
 public record BookingResponse(
         String bookingId,
         String eventId,

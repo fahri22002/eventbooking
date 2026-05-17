@@ -13,6 +13,10 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+/**
+ * Configuration class for core Spring Security authentication components.
+ * Defines beans for user details retrieval (via email), password encoding (BCrypt), and the authentication provider.
+ */
 @Configuration
 @RequiredArgsConstructor
 public class AuthenticationConfig {

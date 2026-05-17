@@ -7,18 +7,23 @@ import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.security.SecurityScheme;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * Configuration class for OpenAPI (Swagger) documentation.
+ * This class defines the API metadata and sets up JWT (JSON Web Token)
+ * directly from the Swagger UI.
+ */
 @Configuration
 @OpenAPIDefinition(
         info = @Info(
-                title = "Agora Event Booking API",
+                title = "Event Booking API",
                 version = "1.0",
-                description = "Dokumentasi API untuk sistem pemesanan tiket acara Agora."
+                description = "API documentation for the event ticket booking system."
         ),
         security = {@SecurityRequirement(name = "bearerAuth")}
 )
 @SecurityScheme(
         name = "bearerAuth",
-        description = "Masukkan token JWT (tanpa tulisan 'Bearer ')",
+        description = "Enter the JWT token (without the 'Bearer ' text))",
         type = SecuritySchemeType.HTTP,
         scheme = "bearer",
         bearerFormat = "JWT"

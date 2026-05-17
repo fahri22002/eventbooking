@@ -15,6 +15,10 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.ZonedDateTime;
 import java.util.UUID;
 
+/**
+ * Service layer responsible for user authentication and registration.
+ * Handles secure password hashing, duplicate email validation, and JWT generation.
+ */
 @Service
 @RequiredArgsConstructor
 public class AuthService {
@@ -24,6 +28,13 @@ public class AuthService {
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
 
+    /**
+     * Registers a new user in the system after validating email uniqueness.
+     *
+     * @param request the registration details provided by the user.
+     * @return the newly created user profile.
+     * @throws DuplicateResourceException if the email is already registered.
+     */
     @Transactional
     public UserProfileResponse register(RegisterRequest request) {
         if (userRepository.existsByEmail(request.getEmail())) {
@@ -43,6 +54,12 @@ public class AuthService {
         return new UserProfileResponse(user.getUserId(), user.getName(), user.getEmail(), user.getCreateAt());
     }
 
+    /**
+     * Authenticates user credentials and issues a JSON Web Token (JWT) upon success.
+     *
+     * @param request the login credentials (email and password).
+     * @return an {@link AuthResponse} containing the generated JWT.
+     */
     public AuthResponse login(LoginRequest request) {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(

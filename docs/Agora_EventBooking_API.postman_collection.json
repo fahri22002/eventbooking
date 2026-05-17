@@ -1,0 +1,2062 @@
+{
+  "info": {
+    "_postman_id": "7bc45ece-561e-4f02-95c9-e27c5601b654",
+    "name": "EventBooking",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "50062248"
+  },
+  "item": [
+    {
+      "name": "Sign Up",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"email\": \"newemail99@gmail.com\",\r\n    \"name\": \"Polite User\",\r\n    \"password\": \"ijustbuyaticket\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/auth/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "auth",
+            "register"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Sign Up",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"newemail99@gmail.com\",\r\n    \"name\": \"Polite User\",\r\n    \"password\": \"ijustbuyaticket\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/auth/register",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Vary",
+              "value": "Origin"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Method"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Headers"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 17 May 2026 08:46:55 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"userId\": \"50f09861-044d-4f5a-8d00-2323be794014\",\n    \"name\": \"Polite User\",\n    \"email\": \"newemail99@gmail.com\",\n    \"createAt\": \"2026-05-17T15:46:55.3180375+07:00\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Sign In",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"email\": \"newemail99@gmail.com\",\r\n    \"password\": \"ijustbuyaticket\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Sign In",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"newemail99@gmail.com\",\r\n    \"password\": \"ijustbuyaticket\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Vary",
+              "value": "Origin"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Method"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Headers"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 17 May 2026 08:47:08 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJuZXdlbWFpbDk5QGdtYWlsLmNvbSIsImlhdCI6MTc3OTAwNzYyOCwiZXhwIjoxNzc5MDE0ODI4fQ.K22tU5wVA7DtjgMD60P2WQCy1_H6Gh4v9hfOmsyecqo\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Show User Profile",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJuZXdlbWFpbDk5QGdtYWlsLmNvbSIsImlhdCI6MTc3OTAwNzYyOCwiZXhwIjoxNzc5MDE0ODI4fQ.K22tU5wVA7DtjgMD60P2WQCy1_H6Gh4v9hfOmsyecqo",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"eventId\": \"c27e10a9-6f97-4d8f-8dff-a732293bf150\",\r\n    \"quantity\": 20\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/user",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "user"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Show User Profile",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"eventId\": \"c27e10a9-6f97-4d8f-8dff-a732293bf150\",\r\n    \"quantity\": 20\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/user",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "user"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Vary",
+              "value": "Origin"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Method"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Headers"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 17 May 2026 08:47:22 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"userId\": \"50f09861-044d-4f5a-8d00-2323be794014\",\n    \"name\": \"Polite User\",\n    \"email\": \"newemail99@gmail.com\",\n    \"createAt\": \"2026-05-17T08:46:55.318038Z\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Create Event",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJuZXdlbWFpbDk5QGdtYWlsLmNvbSIsImlhdCI6MTc3OTAwNzYyOCwiZXhwIjoxNzc5MDE0ODI4fQ.K22tU5wVA7DtjgMD60P2WQCy1_H6Gh4v9hfOmsyecqo",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"title\": \"Webinar Menjadi Manusia Terbaru\",\r\n    \"description\": \"Merasa bukan manusia? Mau jadi manusia? Beli!!\",\r\n    \"location\": \"Depok\",\r\n    \"dateTime\": \"2026-08-30T23:00:00+07:00\", \r\n    \"seatQuota\": 20,\r\n    \"price\": 30000.0\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/events",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "events"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Create Event",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\": \"Webinar Menjadi Manusia Terbaru\",\r\n    \"description\": \"Merasa bukan manusia? Mau jadi manusia? Beli!!\",\r\n    \"location\": \"Depok\",\r\n    \"dateTime\": \"2026-08-30T23:00:00+07:00\", \r\n    \"seatQuota\": 20,\r\n    \"price\": 30000.0\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/events",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "events"
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Vary",
+              "value": "Origin"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Method"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Headers"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 17 May 2026 08:47:57 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"eventId\": \"62deac66-6ee0-4401-8da1-f2a81a3f66bb\",\n    \"title\": \"Webinar Menjadi Manusia Terbaru\",\n    \"description\": \"Merasa bukan manusia? Mau jadi manusia? Beli!!\",\n    \"location\": \"Depok\",\n    \"dateTime\": \"2026-08-30T16:00:00Z\",\n    \"seatQuota\": 20,\n    \"seatsAvailable\": 20,\n    \"price\": 30000,\n    \"isActive\": true,\n    \"creatorName\": \"Polite User\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Event Detail",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJuZXdlbWFpbDk5QGdtYWlsLmNvbSIsImlhdCI6MTc3OTAwNzYyOCwiZXhwIjoxNzc5MDE0ODI4fQ.K22tU5wVA7DtjgMD60P2WQCy1_H6Gh4v9hfOmsyecqo",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"eventId\": \"c27e10a9-6f97-4d8f-8dff-a732293bf150\",\r\n    \"quantity\": 20\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/events/35c073fa-64eb-4c48-ad1d-5310605dfda1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "events",
+            "35c073fa-64eb-4c48-ad1d-5310605dfda1"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Event Detail",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"eventId\": \"c27e10a9-6f97-4d8f-8dff-a732293bf150\",\r\n    \"quantity\": 20\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/events/35c073fa-64eb-4c48-ad1d-5310605dfda1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "events",
+                "35c073fa-64eb-4c48-ad1d-5310605dfda1"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Vary",
+              "value": "Origin"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Method"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Headers"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 17 May 2026 08:48:37 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"eventId\": \"35c073fa-64eb-4c48-ad1d-5310605dfda1\",\n    \"title\": \"Concert Open The Sky by Ilham\",\n    \"description\": \"You want to shake your  head?\",\n    \"location\": \"Jakarta\",\n    \"dateTime\": \"2026-05-30T12:00:00Z\",\n    \"seatQuota\": 100,\n    \"seatsAvailable\": 100,\n    \"price\": 150000,\n    \"isActive\": true,\n    \"creatorName\": \"Testing 2\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Show Event with Pagination",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJuZXdlbWFpbDk5QGdtYWlsLmNvbSIsImlhdCI6MTc3OTAwNzYyOCwiZXhwIjoxNzc5MDE0ODI4fQ.K22tU5wVA7DtjgMD60P2WQCy1_H6Gh4v9hfOmsyecqo",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/events?page=1&size=2&sort=dateTime,asc",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "events"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "1"
+            },
+            {
+              "key": "size",
+              "value": "2"
+            },
+            {
+              "key": "sort",
+              "value": "dateTime,asc"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Show Event with Pagination",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/events?page=1&size=2&sort=dateTime,asc",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "events"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "size",
+                  "value": "2"
+                },
+                {
+                  "key": "sort",
+                  "value": "dateTime,asc"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Vary",
+              "value": "Origin"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Method"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Headers"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 17 May 2026 08:49:01 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"content\": [\n        {\n            \"eventId\": \"70075a50-4efe-4a92-a6e0-e3c2725b52f1\",\n            \"title\": \"Swagger is good 2\",\n            \"description\": \"Just trying some good stuf\",\n            \"location\": \"Swagger\",\n            \"dateTime\": \"2026-07-16T08:23:59.109Z\",\n            \"seatQuota\": 10,\n            \"seatsAvailable\": 10,\n            \"price\": 20000,\n            \"isActive\": true,\n            \"creatorName\": \"swagger tester 16\"\n        },\n        {\n            \"eventId\": \"7b01fadb-9c7e-43d1-b30b-43e6dfca5d7a\",\n            \"title\": \"Webinar Menjadi Manusia\",\n            \"description\": \"Merasa bukan manusia? Mau jadi manusia? Beli!!\",\n            \"location\": \"Depok\",\n            \"dateTime\": \"2026-07-30T16:00:00Z\",\n            \"seatQuota\": 20,\n            \"seatsAvailable\": 10,\n            \"price\": 30000,\n            \"isActive\": true,\n            \"creatorName\": \"Testing 2\"\n        }\n    ],\n    \"pageable\": {\n        \"pageNumber\": 1,\n        \"pageSize\": 2,\n        \"sort\": {\n            \"empty\": false,\n            \"sorted\": true,\n            \"unsorted\": false\n        },\n        \"offset\": 2,\n        \"unpaged\": false,\n        \"paged\": true\n    },\n    \"last\": false,\n    \"totalElements\": 5,\n    \"totalPages\": 3,\n    \"size\": 2,\n    \"number\": 1,\n    \"sort\": {\n        \"empty\": false,\n        \"sorted\": true,\n        \"unsorted\": false\n    },\n    \"first\": false,\n    \"numberOfElements\": 2,\n    \"empty\": false\n}"
+        }
+      ]
+    },
+    {
+      "name": "Show Event Default Pagination",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJuZXdlbWFpbDk5QGdtYWlsLmNvbSIsImlhdCI6MTc3OTAwNzYyOCwiZXhwIjoxNzc5MDE0ODI4fQ.K22tU5wVA7DtjgMD60P2WQCy1_H6Gh4v9hfOmsyecqo",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/events",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "events"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Show Event Default Pagination",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/events",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "events"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Vary",
+              "value": "Origin"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Method"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Headers"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 17 May 2026 08:49:22 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"content\": [\n        {\n            \"eventId\": \"35c073fa-64eb-4c48-ad1d-5310605dfda1\",\n            \"title\": \"Concert Open The Sky by Ilham\",\n            \"description\": \"You want to shake your  head?\",\n            \"location\": \"Jakarta\",\n            \"dateTime\": \"2026-05-30T12:00:00Z\",\n            \"seatQuota\": 100,\n            \"seatsAvailable\": 100,\n            \"price\": 150000,\n            \"isActive\": true,\n            \"creatorName\": \"Testing 2\"\n        },\n        {\n            \"eventId\": \"9c38b8ba-b319-41d2-9ae5-b045a0d6af11\",\n            \"title\": \"Webinar - First Event Ever\",\n            \"description\": \"The first event input here so, please booking the tickets!!\",\n            \"location\": \"Bandung\",\n            \"dateTime\": \"2026-06-16T06:00:00Z\",\n            \"seatQuota\": 50,\n            \"seatsAvailable\": 50,\n            \"price\": 50000,\n            \"isActive\": true,\n            \"creatorName\": \"Testing 1\"\n        },\n        {\n            \"eventId\": \"70075a50-4efe-4a92-a6e0-e3c2725b52f1\",\n            \"title\": \"Swagger is good 2\",\n            \"description\": \"Just trying some good stuf\",\n            \"location\": \"Swagger\",\n            \"dateTime\": \"2026-07-16T08:23:59.109Z\",\n            \"seatQuota\": 10,\n            \"seatsAvailable\": 10,\n            \"price\": 20000,\n            \"isActive\": true,\n            \"creatorName\": \"swagger tester 16\"\n        },\n        {\n            \"eventId\": \"7b01fadb-9c7e-43d1-b30b-43e6dfca5d7a\",\n            \"title\": \"Webinar Menjadi Manusia\",\n            \"description\": \"Merasa bukan manusia? Mau jadi manusia? Beli!!\",\n            \"location\": \"Depok\",\n            \"dateTime\": \"2026-07-30T16:00:00Z\",\n            \"seatQuota\": 20,\n            \"seatsAvailable\": 10,\n            \"price\": 30000,\n            \"isActive\": true,\n            \"creatorName\": \"Testing 2\"\n        },\n        {\n            \"eventId\": \"62deac66-6ee0-4401-8da1-f2a81a3f66bb\",\n            \"title\": \"Webinar Menjadi Manusia Terbaru\",\n            \"description\": \"Merasa bukan manusia? Mau jadi manusia? Beli!!\",\n            \"location\": \"Depok\",\n            \"dateTime\": \"2026-08-30T16:00:00Z\",\n            \"seatQuota\": 20,\n            \"seatsAvailable\": 20,\n            \"price\": 30000,\n            \"isActive\": true,\n            \"creatorName\": \"Polite User\"\n        }\n    ],\n    \"pageable\": {\n        \"pageNumber\": 0,\n        \"pageSize\": 10,\n        \"sort\": {\n            \"empty\": false,\n            \"sorted\": true,\n            \"unsorted\": false\n        },\n        \"offset\": 0,\n        \"unpaged\": false,\n        \"paged\": true\n    },\n    \"last\": true,\n    \"totalElements\": 5,\n    \"totalPages\": 1,\n    \"size\": 10,\n    \"number\": 0,\n    \"sort\": {\n        \"empty\": false,\n        \"sorted\": true,\n        \"unsorted\": false\n    },\n    \"first\": true,\n    \"numberOfElements\": 5,\n    \"empty\": false\n}"
+        }
+      ]
+    },
+    {
+      "name": "Search Event by Title",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJuZXdlbWFpbDk5QGdtYWlsLmNvbSIsImlhdCI6MTc3OTAwNzYyOCwiZXhwIjoxNzc5MDE0ODI4fQ.K22tU5wVA7DtjgMD60P2WQCy1_H6Gh4v9hfOmsyecqo",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/events/search?title=Webinar",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "events",
+            "search"
+          ],
+          "query": [
+            {
+              "key": "title",
+              "value": "Webinar"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Search Event by Title",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/events/search?title=Webinar",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "events",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "title",
+                  "value": "Webinar"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Vary",
+              "value": "Origin"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Method"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Headers"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 17 May 2026 08:49:45 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"content\": [\n        {\n            \"eventId\": \"9c38b8ba-b319-41d2-9ae5-b045a0d6af11\",\n            \"title\": \"Webinar - First Event Ever\",\n            \"description\": \"The first event input here so, please booking the tickets!!\",\n            \"location\": \"Bandung\",\n            \"dateTime\": \"2026-06-16T06:00:00Z\",\n            \"seatQuota\": 50,\n            \"seatsAvailable\": 50,\n            \"price\": 50000,\n            \"isActive\": true,\n            \"creatorName\": \"Testing 1\"\n        },\n        {\n            \"eventId\": \"7b01fadb-9c7e-43d1-b30b-43e6dfca5d7a\",\n            \"title\": \"Webinar Menjadi Manusia\",\n            \"description\": \"Merasa bukan manusia? Mau jadi manusia? Beli!!\",\n            \"location\": \"Depok\",\n            \"dateTime\": \"2026-07-30T16:00:00Z\",\n            \"seatQuota\": 20,\n            \"seatsAvailable\": 10,\n            \"price\": 30000,\n            \"isActive\": true,\n            \"creatorName\": \"Testing 2\"\n        },\n        {\n            \"eventId\": \"62deac66-6ee0-4401-8da1-f2a81a3f66bb\",\n            \"title\": \"Webinar Menjadi Manusia Terbaru\",\n            \"description\": \"Merasa bukan manusia? Mau jadi manusia? Beli!!\",\n            \"location\": \"Depok\",\n            \"dateTime\": \"2026-08-30T16:00:00Z\",\n            \"seatQuota\": 20,\n            \"seatsAvailable\": 20,\n            \"price\": 30000,\n            \"isActive\": true,\n            \"creatorName\": \"Polite User\"\n        }\n    ],\n    \"pageable\": {\n        \"pageNumber\": 0,\n        \"pageSize\": 10,\n        \"sort\": {\n            \"empty\": false,\n            \"sorted\": true,\n            \"unsorted\": false\n        },\n        \"offset\": 0,\n        \"unpaged\": false,\n        \"paged\": true\n    },\n    \"last\": true,\n    \"totalElements\": 3,\n    \"totalPages\": 1,\n    \"size\": 10,\n    \"number\": 0,\n    \"sort\": {\n        \"empty\": false,\n        \"sorted\": true,\n        \"unsorted\": false\n    },\n    \"first\": true,\n    \"numberOfElements\": 3,\n    \"empty\": false\n}"
+        }
+      ]
+    },
+    {
+      "name": "Search Event with Complete Query",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJuZXdlbWFpbDk5QGdtYWlsLmNvbSIsImlhdCI6MTc3OTAwNzYyOCwiZXhwIjoxNzc5MDE0ODI4fQ.K22tU5wVA7DtjgMD60P2WQCy1_H6Gh4v9hfOmsyecqo",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/events/search?title=Webinar&location=Depok&creatorName=Testing&showPast=True&startDate=2026-05-01T00:00:00Z&endDate=2036-05-31T23:59:59Z",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "events",
+            "search"
+          ],
+          "query": [
+            {
+              "key": "title",
+              "value": "Webinar"
+            },
+            {
+              "key": "location",
+              "value": "Depok"
+            },
+            {
+              "key": "creatorName",
+              "value": "Testing"
+            },
+            {
+              "key": "showPast",
+              "value": "True"
+            },
+            {
+              "key": "startDate",
+              "value": "2026-05-01T00:00:00Z"
+            },
+            {
+              "key": "endDate",
+              "value": "2036-05-31T23:59:59Z"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Search Event with Complete Query",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/events/search?title=Webinar&location=Depok&creatorName=Testing&showPast=True&startDate=2026-05-01T00:00:00Z&endDate=2036-05-31T23:59:59Z",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "events",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "title",
+                  "value": "Webinar"
+                },
+                {
+                  "key": "location",
+                  "value": "Depok"
+                },
+                {
+                  "key": "creatorName",
+                  "value": "Testing"
+                },
+                {
+                  "key": "showPast",
+                  "value": "True"
+                },
+                {
+                  "key": "startDate",
+                  "value": "2026-05-01T00:00:00Z"
+                },
+                {
+                  "key": "endDate",
+                  "value": "2036-05-31T23:59:59Z"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Vary",
+              "value": "Origin"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Method"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Headers"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 17 May 2026 08:51:28 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"content\": [\n        {\n            \"eventId\": \"7b01fadb-9c7e-43d1-b30b-43e6dfca5d7a\",\n            \"title\": \"Webinar Menjadi Manusia\",\n            \"description\": \"Merasa bukan manusia? Mau jadi manusia? Beli!!\",\n            \"location\": \"Depok\",\n            \"dateTime\": \"2026-07-30T16:00:00Z\",\n            \"seatQuota\": 20,\n            \"seatsAvailable\": 10,\n            \"price\": 30000,\n            \"isActive\": true,\n            \"creatorName\": \"Testing 2\"\n        }\n    ],\n    \"pageable\": {\n        \"pageNumber\": 0,\n        \"pageSize\": 10,\n        \"sort\": {\n            \"empty\": false,\n            \"sorted\": true,\n            \"unsorted\": false\n        },\n        \"offset\": 0,\n        \"unpaged\": false,\n        \"paged\": true\n    },\n    \"last\": true,\n    \"totalElements\": 1,\n    \"totalPages\": 1,\n    \"size\": 10,\n    \"number\": 0,\n    \"sort\": {\n        \"empty\": false,\n        \"sorted\": true,\n        \"unsorted\": false\n    },\n    \"first\": true,\n    \"numberOfElements\": 1,\n    \"empty\": false\n}"
+        }
+      ]
+    },
+    {
+      "name": "Show My Event",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJuZXdlbWFpbDk5QGdtYWlsLmNvbSIsImlhdCI6MTc3OTAwNzYyOCwiZXhwIjoxNzc5MDE0ODI4fQ.K22tU5wVA7DtjgMD60P2WQCy1_H6Gh4v9hfOmsyecqo",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/events/my-events",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "events",
+            "my-events"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Show My Event",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/events/my-events",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "events",
+                "my-events"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Vary",
+              "value": "Origin"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Method"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Headers"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 17 May 2026 08:51:46 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"content\": [\n        {\n            \"eventId\": \"62deac66-6ee0-4401-8da1-f2a81a3f66bb\",\n            \"title\": \"Webinar Menjadi Manusia Terbaru\",\n            \"description\": \"Merasa bukan manusia? Mau jadi manusia? Beli!!\",\n            \"location\": \"Depok\",\n            \"dateTime\": \"2026-08-30T16:00:00Z\",\n            \"seatQuota\": 20,\n            \"seatsAvailable\": 20,\n            \"price\": 30000,\n            \"isActive\": true,\n            \"creatorName\": \"Polite User\"\n        }\n    ],\n    \"pageable\": {\n        \"pageNumber\": 0,\n        \"pageSize\": 10,\n        \"sort\": {\n            \"empty\": false,\n            \"sorted\": true,\n            \"unsorted\": false\n        },\n        \"offset\": 0,\n        \"unpaged\": false,\n        \"paged\": true\n    },\n    \"last\": true,\n    \"totalElements\": 1,\n    \"totalPages\": 1,\n    \"size\": 10,\n    \"number\": 0,\n    \"sort\": {\n        \"empty\": false,\n        \"sorted\": true,\n        \"unsorted\": false\n    },\n    \"first\": true,\n    \"numberOfElements\": 1,\n    \"empty\": false\n}"
+        }
+      ]
+    },
+    {
+      "name": "Update Event",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJuZXdlbWFpbDk5QGdtYWlsLmNvbSIsImlhdCI6MTc3OTAwNzYyOCwiZXhwIjoxNzc5MDE0ODI4fQ.K22tU5wVA7DtjgMD60P2WQCy1_H6Gh4v9hfOmsyecqo",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"title\": \"Konser Gacha Anniversary (Update VIP)\",\r\n    \"description\": \"Perayaan anniversary game dengan musik orkestra dan tambahan sesi Meet & Greet.\",\r\n    \"location\": \"Jakarta Convention Center\",\r\n    \"dateTime\": \"2026-12-26T15:00:00+07:00\",\r\n    \"seatQuota\": 600,\r\n    \"price\": 250000.0\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/events/62deac66-6ee0-4401-8da1-f2a81a3f66bb",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "events",
+            "62deac66-6ee0-4401-8da1-f2a81a3f66bb"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Update Event",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\": \"Konser Gacha Anniversary (Update VIP)\",\r\n    \"description\": \"Perayaan anniversary game dengan musik orkestra dan tambahan sesi Meet & Greet.\",\r\n    \"location\": \"Jakarta Convention Center\",\r\n    \"dateTime\": \"2026-12-26T15:00:00+07:00\",\r\n    \"seatQuota\": 600,\r\n    \"price\": 250000.0\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/events/62deac66-6ee0-4401-8da1-f2a81a3f66bb",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "events",
+                "62deac66-6ee0-4401-8da1-f2a81a3f66bb"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Vary",
+              "value": "Origin"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Method"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Headers"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 17 May 2026 08:52:37 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"eventId\": \"62deac66-6ee0-4401-8da1-f2a81a3f66bb\",\n    \"title\": \"Konser Gacha Anniversary (Update VIP)\",\n    \"description\": \"Perayaan anniversary game dengan musik orkestra dan tambahan sesi Meet & Greet.\",\n    \"location\": \"Jakarta Convention Center\",\n    \"dateTime\": \"2026-12-26T08:00:00Z\",\n    \"seatQuota\": 600,\n    \"seatsAvailable\": 20,\n    \"price\": 30000,\n    \"isActive\": true,\n    \"creatorName\": \"Polite User\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Delete Event",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJuZXdlbWFpbDk5QGdtYWlsLmNvbSIsImlhdCI6MTc3OTAwNzYyOCwiZXhwIjoxNzc5MDE0ODI4fQ.K22tU5wVA7DtjgMD60P2WQCy1_H6Gh4v9hfOmsyecqo",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/events/62deac66-6ee0-4401-8da1-f2a81a3f66bb",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "events",
+            "62deac66-6ee0-4401-8da1-f2a81a3f66bb"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Delete Event",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/events/62deac66-6ee0-4401-8da1-f2a81a3f66bb",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "events",
+                "62deac66-6ee0-4401-8da1-f2a81a3f66bb"
+              ]
+            }
+          },
+          "status": "No Content",
+          "code": 204,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Vary",
+              "value": "Origin"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Method"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Headers"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 17 May 2026 08:53:13 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": null
+        }
+      ]
+    },
+    {
+      "name": "Booking Event",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJuZXdlbWFpbDk5QGdtYWlsLmNvbSIsImlhdCI6MTc3OTAwNzYyOCwiZXhwIjoxNzc5MDE0ODI4fQ.K22tU5wVA7DtjgMD60P2WQCy1_H6Gh4v9hfOmsyecqo",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"eventId\": \"35c073fa-64eb-4c48-ad1d-5310605dfda1\",\r\n    \"quantity\": 10\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/bookings",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "bookings"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Booking Event",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"eventId\": \"35c073fa-64eb-4c48-ad1d-5310605dfda1\",\r\n    \"quantity\": 10\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/bookings",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "bookings"
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Vary",
+              "value": "Origin"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Method"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Headers"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 17 May 2026 08:54:00 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"bookingId\": \"2abc811f-15fd-42c6-b333-f141851b2154\",\n    \"eventId\": \"35c073fa-64eb-4c48-ad1d-5310605dfda1\",\n    \"eventTitle\": \"Concert Open The Sky by Ilham\",\n    \"bookingReference\": \"BKG-260517155400-4E3E23\",\n    \"quantity\": 10,\n    \"totalPrice\": 1500000,\n    \"status\": \"CONFIRMED\",\n    \"bookingDateTime\": \"2026-05-17T15:54:00.384522+07:00\",\n    \"eventDateTime\": \"2026-05-30T12:00:00Z\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Show Booking History Default Pagination",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJuZXdlbWFpbDk5QGdtYWlsLmNvbSIsImlhdCI6MTc3OTAwNzYyOCwiZXhwIjoxNzc5MDE0ODI4fQ.K22tU5wVA7DtjgMD60P2WQCy1_H6Gh4v9hfOmsyecqo",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"eventId\": \"c27e10a9-6f97-4d8f-8dff-a732293bf150\",\r\n    \"quantity\": 20\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/bookings",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "bookings"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Show Booking History Default Pagination",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"eventId\": \"c27e10a9-6f97-4d8f-8dff-a732293bf150\",\r\n    \"quantity\": 20\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/bookings",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "bookings"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Vary",
+              "value": "Origin"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Method"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Headers"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 17 May 2026 08:54:30 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"content\": [\n        {\n            \"bookingId\": \"2abc811f-15fd-42c6-b333-f141851b2154\",\n            \"eventId\": \"35c073fa-64eb-4c48-ad1d-5310605dfda1\",\n            \"eventTitle\": \"Concert Open The Sky by Ilham\",\n            \"bookingReference\": \"BKG-260517155400-4E3E23\",\n            \"quantity\": 10,\n            \"totalPrice\": 1500000,\n            \"status\": \"CONFIRMED\",\n            \"bookingDateTime\": \"2026-05-17T08:54:00.384522Z\",\n            \"eventDateTime\": \"2026-05-30T12:00:00Z\"\n        }\n    ],\n    \"pageable\": {\n        \"pageNumber\": 0,\n        \"pageSize\": 10,\n        \"sort\": {\n            \"empty\": false,\n            \"sorted\": true,\n            \"unsorted\": false\n        },\n        \"offset\": 0,\n        \"unpaged\": false,\n        \"paged\": true\n    },\n    \"last\": true,\n    \"totalElements\": 1,\n    \"totalPages\": 1,\n    \"size\": 10,\n    \"number\": 0,\n    \"sort\": {\n        \"empty\": false,\n        \"sorted\": true,\n        \"unsorted\": false\n    },\n    \"first\": true,\n    \"numberOfElements\": 1,\n    \"empty\": false\n}"
+        }
+      ]
+    },
+    {
+      "name": "Show Booking History with Pagination",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJuZXdlbWFpbDk5QGdtYWlsLmNvbSIsImlhdCI6MTc3OTAwNzYyOCwiZXhwIjoxNzc5MDE0ODI4fQ.K22tU5wVA7DtjgMD60P2WQCy1_H6Gh4v9hfOmsyecqo",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"eventId\": \"c27e10a9-6f97-4d8f-8dff-a732293bf150\",\r\n    \"quantity\": 20\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/bookings?page=0&size=1&sort=eventDateTime,asc",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "bookings"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "0"
+            },
+            {
+              "key": "size",
+              "value": "1"
+            },
+            {
+              "key": "sort",
+              "value": "eventDateTime,asc"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Show Booking History with Pagination",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"eventId\": \"c27e10a9-6f97-4d8f-8dff-a732293bf150\",\r\n    \"quantity\": 20\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/bookings?page=0&size=1&sort=eventDateTime,asc",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "bookings"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "1"
+                },
+                {
+                  "key": "sort",
+                  "value": "eventDateTime,asc"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Vary",
+              "value": "Origin"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Method"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Headers"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 17 May 2026 08:54:47 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"content\": [\n        {\n            \"bookingId\": \"2abc811f-15fd-42c6-b333-f141851b2154\",\n            \"eventId\": \"35c073fa-64eb-4c48-ad1d-5310605dfda1\",\n            \"eventTitle\": \"Concert Open The Sky by Ilham\",\n            \"bookingReference\": \"BKG-260517155400-4E3E23\",\n            \"quantity\": 10,\n            \"totalPrice\": 1500000,\n            \"status\": \"CONFIRMED\",\n            \"bookingDateTime\": \"2026-05-17T08:54:00.384522Z\",\n            \"eventDateTime\": \"2026-05-30T12:00:00Z\"\n        }\n    ],\n    \"pageable\": {\n        \"pageNumber\": 0,\n        \"pageSize\": 1,\n        \"sort\": {\n            \"empty\": false,\n            \"sorted\": true,\n            \"unsorted\": false\n        },\n        \"offset\": 0,\n        \"unpaged\": false,\n        \"paged\": true\n    },\n    \"last\": true,\n    \"totalElements\": 1,\n    \"totalPages\": 1,\n    \"size\": 1,\n    \"number\": 0,\n    \"sort\": {\n        \"empty\": false,\n        \"sorted\": true,\n        \"unsorted\": false\n    },\n    \"first\": true,\n    \"numberOfElements\": 1,\n    \"empty\": false\n}"
+        }
+      ]
+    },
+    {
+      "name": "Cancel Booking",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJuZXdlbWFpbDk5QGdtYWlsLmNvbSIsImlhdCI6MTc3OTAwNzYyOCwiZXhwIjoxNzc5MDE0ODI4fQ.K22tU5wVA7DtjgMD60P2WQCy1_H6Gh4v9hfOmsyecqo",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"eventId\": \"c27e10a9-6f97-4d8f-8dff-a732293bf150\",\r\n    \"quantity\": 20\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/bookings/2abc811f-15fd-42c6-b333-f141851b2154",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "bookings",
+            "2abc811f-15fd-42c6-b333-f141851b2154"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Cancel Booking",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"eventId\": \"c27e10a9-6f97-4d8f-8dff-a732293bf150\",\r\n    \"quantity\": 20\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/bookings/2abc811f-15fd-42c6-b333-f141851b2154",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "bookings",
+                "2abc811f-15fd-42c6-b333-f141851b2154"
+              ]
+            }
+          },
+          "status": "No Content",
+          "code": 204,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Vary",
+              "value": "Origin"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Method"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Headers"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 17 May 2026 08:55:24 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": null
+        }
+      ]
+    }
+  ]
+}

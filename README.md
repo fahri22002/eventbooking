@@ -43,6 +43,7 @@ The application uses PostgreSQL. The schema is automatically generated and seede
    ```
 
 2. **Environment Configuration**
+   
    Copy the example environment file and configure your credentials.
    ```bash
    cp .env.example .env
@@ -54,6 +55,7 @@ The application uses PostgreSQL. The schema is automatically generated and seede
    *Open the `.env` file and ensure the database credentials and JWT secret are set.*
 
 3. **Start the Infrastructure and Application**
+   
    This command will start the PostgreSQL database and the Spring Boot application container simultaneously. Flyway will automatically run the migrations and seed the initial data.
 
    (This command will start the PostgreSQL database container and pull the pre-built Spring Boot API container directly from Docker Hub.)
@@ -62,6 +64,7 @@ The application uses PostgreSQL. The schema is automatically generated and seede
    ```
 
 4. **Verify the Application**
+   
    The API will be accessible at `http://localhost:8080`.
 
    To validate that the Docker containers are running successfully, are healthy, and are properly interconnected, run the entire *automated tests* suite using the following commands in the terminal:

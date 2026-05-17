@@ -4,6 +4,11 @@ import jakarta.persistence.*;
 import lombok.*;
 import java.time.ZonedDateTime;
 
+/**
+ * Entity representing a ticket booking reservation.
+ * Maps the relationship between a {@link User} and an {@link Event}, tracking the requested quantity,
+ * booking status, and unique reference code.
+ */
 @Entity
 @Table(name = "\"Booking\"")
 @Getter

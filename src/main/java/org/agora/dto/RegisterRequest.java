@@ -4,6 +4,10 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
+/**
+ * DTO for new user registration requests.
+ * Enforces strict validation rules, including regex-based email format checking.
+ */
 @Data
 public class RegisterRequest {
 

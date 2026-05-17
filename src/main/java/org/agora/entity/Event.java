@@ -5,6 +5,10 @@ import lombok.*;
 import java.math.BigDecimal;
 import java.time.ZonedDateTime;
 
+/**
+ * Entity representing an event available for booking.
+ * Stores event details, scheduling, ticket pricing, dynamic capacity tracking, and a soft-deletion flag.
+ */
 @Entity
 @Table(name = "\"Event\"")
 @Getter

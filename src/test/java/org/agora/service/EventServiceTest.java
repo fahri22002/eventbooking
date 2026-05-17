@@ -148,9 +148,13 @@ class EventServiceTest {
         event.setSeatsAvailable(100);
         event.setSeatQuota(100);
         event.setCreator(creator);
+        event.setDateTime(ZonedDateTime.now().plusDays(2));
 
         Page<Event> eventPage = new PageImpl<>(List.of(event));
-        when(eventRepository.findAll(pageable)).thenReturn(eventPage);
+        when(eventRepository.findByIsActiveTrueAndDateTimeAfter(
+                any(ZonedDateTime.class),
+                eq(pageable)
+        )).thenReturn(eventPage);
 
         // Act
         Page<EventResponse> response = eventService.getAllEvents(pageable);
@@ -159,7 +163,10 @@ class EventServiceTest {
         assertNotNull(response);
         assertEquals(1, response.getContent().size());
         assertEquals("Tech Meetup", response.getContent().get(0).title());
-        verify(eventRepository, times(1)).findAll(pageable);
+        verify(eventRepository, times(1)).findByIsActiveTrueAndDateTimeAfter(
+                any(ZonedDateTime.class),
+                eq(pageable)
+        );
     }
 
     /**
@@ -231,6 +238,7 @@ class EventServiceTest {
         existingEvent.setSeatQuota(100);
         existingEvent.setSeatsAvailable(100);
         existingEvent.setIsActive(true);
+        existingEvent.setDateTime(ZonedDateTime.now().plusDays(2));
         existingEvent.setPrice(BigDecimal.valueOf(50000)); // Harga tidak berubah di DTO
 
         when(eventRepository.findById("event-123")).thenReturn(Optional.of(existingEvent));

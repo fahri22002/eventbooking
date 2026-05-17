@@ -37,15 +37,15 @@ public class AuthService {
      */
     @Transactional
     public UserProfileResponse register(RegisterRequest request) {
-        if (userRepository.existsByEmail(request.getEmail())) {
+        if (userRepository.existsByEmail(request.email())) {
             throw new DuplicateResourceException("Email already exists");
         }
 
         User user = User.builder()
                 .userId(UUID.randomUUID().toString())
-                .name(request.getName())
-                .email(request.getEmail())
-                .password(passwordEncoder.encode(request.getPassword()))
+                .name(request.name())
+                .email(request.email())
+                .password(passwordEncoder.encode(request.password()))
                 .createAt(ZonedDateTime.now())
                 .build();
 
@@ -63,12 +63,12 @@ public class AuthService {
     public AuthResponse login(LoginRequest request) {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
-                        request.getEmail(),
-                        request.getPassword()
+                        request.email(),
+                        request.password()
                 )
         );
 
-        var user = userRepository.findByEmail(request.getEmail())
+        var user = userRepository.findByEmail(request.email())
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
         var jwtToken = jwtService.generateToken(user.getEmail());

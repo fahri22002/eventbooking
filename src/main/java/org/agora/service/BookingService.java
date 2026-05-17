@@ -6,6 +6,7 @@ import org.agora.dto.BookingResponse;
 import org.agora.entity.Booking;
 import org.agora.entity.Event;
 import org.agora.entity.User;
+import org.agora.exception.DuplicateResourceException;
 import org.agora.exception.ForbiddenAccessException;
 import org.agora.exception.ResourceNotFoundException;
 import org.agora.repository.BookingRepository;
@@ -41,7 +42,7 @@ public class BookingService {
      * @param request the booking payload containing event ID and requested quantity.
      * @return the saved booking mapped to a response DTO.
      * @throws ResourceNotFoundException if the user or event is not found.
-//     * @throws DuplicateResourceException if the user already has a confirmed booking for the event.
+     * @throws DuplicateResourceException if the user already has a confirmed booking for the event.
      * @throws RuntimeException if the event is inactive or seats are insufficient.
      */
     @Transactional
@@ -62,7 +63,7 @@ public class BookingService {
         );
 
         if (hasActiveBooking) {
-            throw new RuntimeException("You already have a confirmed booking for this event.");
+            throw new DuplicateResourceException("You already have a confirmed booking for this event.");
         }
 
         int updatedRows = eventRepository.decreaseSeatQuota(event.getEventId(), request.quantity());

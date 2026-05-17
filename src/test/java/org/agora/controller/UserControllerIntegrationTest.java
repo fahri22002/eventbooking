@@ -2,8 +2,6 @@ package org.agora.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jayway.jsonpath.JsonPath;
-import org.agora.dto.BookingRequest;
-import org.agora.dto.UserProfileResponse;
 import org.agora.dto.LoginRequest;
 import org.agora.dto.RegisterRequest;
 import org.junit.jupiter.api.BeforeEach;
@@ -43,19 +41,14 @@ public class UserControllerIntegrationTest {
     @BeforeEach
     void setupAuth() throws Exception {
         // Arrange Registration
-        RegisterRequest regRequest = new RegisterRequest();
-        regRequest.setName("fahritest3");
-        regRequest.setEmail("fahri@agora.com");
-        regRequest.setPassword("rahasia123");
+        RegisterRequest regRequest = new RegisterRequest("fahritest3", "fahri@agora.com", "rahasia123");
 
         mockMvc.perform(post("/api/auth/register")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(regRequest)));
 
         // Arrange Login to get JWT
-        LoginRequest loginRequest = new LoginRequest();
-        loginRequest.setEmail("fahri@agora.com");
-        loginRequest.setPassword("rahasia123");
+        LoginRequest loginRequest = new LoginRequest("fahri@agora.com", "rahasia123");
         MvcResult result = mockMvc.perform(post("/api/auth/login")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(loginRequest)))

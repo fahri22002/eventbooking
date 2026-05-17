@@ -13,6 +13,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
+/**
+ * Service responsible for JWT operations.
+ * Handles the secure generation, parsing, validation, and extraction of claims (such as username and expiration) from JWTs.
+ */
 @Service
 public class JwtService {
 

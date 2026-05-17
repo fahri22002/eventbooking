@@ -11,6 +11,11 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+/**
+ * Main security configuration for the application.
+ * Configures stateless session management, disables CSRF, defines public vs. protected endpoints,
+ * and integrates the custom JWT authentication filter and error handlers.
+ */
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor

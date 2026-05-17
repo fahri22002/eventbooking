@@ -2,14 +2,15 @@ package org.agora.dto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import lombok.Data;
 
-@Data
-public class LoginRequest {
-    @NotBlank(message = "Email cannot be empty")
+/**
+ * DTO for user authentication requests.
+ * Encapsulates and validates the user's email and password credentials for login.
+ */
+public record LoginRequest (    @NotBlank(message = "Email cannot be empty")
     @Email(message = "Invalid email format")
-    private String email;
+    String email,
 
     @NotBlank(message = "Password cannot be empty")
-    private String password;
-}
+    String password
+) {}

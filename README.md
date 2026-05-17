@@ -47,6 +47,10 @@ The application uses PostgreSQL. The schema is automatically generated and seede
    ```bash
    cp .env.example .env
    ```
+   OR
+    ```bash
+   copy .env.example .env
+   ```
    *Open the `.env` file and ensure the database credentials and JWT secret are set.*
 
 3. **Start the Infrastructure and Application**
@@ -60,6 +64,10 @@ The application uses PostgreSQL. The schema is automatically generated and seede
 4. **Verify the Application**
    The API will be accessible at `http://localhost:8080`.
 
+   To validate that the Docker containers are running successfully, are healthy, and are properly interconnected, run the entire *automated tests* suite using the following commands in the terminal:
+
+   ```cmd
+   gradlew test
 ## API Documentation & Endpoint Summary
 The API is fully documented using OpenAPI/Swagger. Once the application is running, you can access the interactive documentation via browser:
 * **Swagger UI:** `http://localhost:8080/swagger-ui/index.html`

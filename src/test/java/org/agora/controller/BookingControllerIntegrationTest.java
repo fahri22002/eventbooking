@@ -48,19 +48,14 @@ class BookingControllerIntegrationTest {
     @BeforeEach
     void setupData() throws Exception {
         // 1. Register
-        RegisterRequest regRequest = new RegisterRequest();
-        regRequest.setName("Booking User");
-        regRequest.setEmail("booking.buyer@agora.com");
-        regRequest.setPassword("rahasia123");
+        RegisterRequest regRequest = new RegisterRequest("Booking User", "booking.buyer@agora.com", "rahasia123");
 
         mockMvc.perform(post("/api/auth/register")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(regRequest)));
 
         // 2. Login
-        LoginRequest loginRequest = new LoginRequest();
-        loginRequest.setEmail("booking.buyer@agora.com");
-        loginRequest.setPassword("rahasia123");
+        LoginRequest loginRequest = new LoginRequest("booking.buyer@agora.com", "rahasia123");
         MvcResult loginResult = mockMvc.perform(post("/api/auth/login")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(loginRequest)))
@@ -96,19 +91,14 @@ class BookingControllerIntegrationTest {
      */
     String loginAnotherEmail() throws Exception {
         // Register
-        RegisterRequest regRequest = new RegisterRequest();
-        regRequest.setName("fahritest3");
-        regRequest.setEmail("another@agora.com");
-        regRequest.setPassword("rahasia123");
+        RegisterRequest regRequest = new RegisterRequest("fahritest3", "another@agora.com", "rahasia123");
 
         mockMvc.perform(post("/api/auth/register")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(regRequest)));
 
         // Login
-        LoginRequest loginRequest = new LoginRequest();
-        loginRequest.setEmail("another@agora.com");
-        loginRequest.setPassword("rahasia123");
+        LoginRequest loginRequest = new LoginRequest("another@agora.com", "rahasia123");
         MvcResult result = mockMvc.perform(post("/api/auth/login")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(loginRequest)))
@@ -141,6 +131,27 @@ class BookingControllerIntegrationTest {
                 .andExpect(jsonPath("$.quantity").value(2))
                 .andExpect(jsonPath("$.totalPrice").value(200000.0))
                 .andExpect(jsonPath("$.bookingReference").exists());
+    }
+
+    /**
+     * FR-10 : Create Booking
+     * Fail Case : Not enough seats
+     * @throws Exception
+     */
+    @Test
+    void createBookingE2EFailNotEnoughSeats() throws Exception {
+        // Arrange
+        BookingRequest request = new BookingRequest(validEventId, 200);
+
+        // Act and Assert
+        mockMvc.perform(post("/api/bookings")
+                        .header("Authorization", "Bearer " + validJwtToken)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(request)))
+
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.error").value("Bad Request"))
+                .andExpect(jsonPath("$.message").value("Booking failed: Not enough seats available or event not found."));
     }
 
     /**
@@ -260,7 +271,7 @@ class BookingControllerIntegrationTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(request)))
 
-                .andExpect(status().isBadRequest())
+                .andExpect(status().isConflict())
                 .andExpect(jsonPath("$.message").value("You already have a confirmed booking for this event."));
     }
 }

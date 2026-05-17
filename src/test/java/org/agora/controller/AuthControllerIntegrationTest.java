@@ -1,7 +1,6 @@
 package org.agora.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.jayway.jsonpath.JsonPath;
 import org.agora.dto.LoginRequest;
 import org.agora.dto.RegisterRequest;
 import org.junit.jupiter.api.Test;
@@ -38,10 +37,7 @@ class AuthControllerIntegrationTest {
     @Test
     void registerE2ESuccess() throws Exception {
         // Arrange
-        RegisterRequest request = new RegisterRequest();
-        request.setName("Pengguna Test E2E");
-        request.setEmail("e2etest@agora.com");
-        request.setPassword("passwordKuat123");
+        RegisterRequest request = new RegisterRequest("Pengguna Test E2E", "e2etest@agora.com", "passwordKuat123");
 
         // Act
         mockMvc.perform(post("/api/auth/register")
@@ -49,8 +45,8 @@ class AuthControllerIntegrationTest {
                         .content(objectMapper.writeValueAsString(request)))
         // Assert
                 .andExpect(status().isCreated())
-                .andExpect(jsonPath("$.name").value(request.getName()))
-                .andExpect(jsonPath("$.email").value(request.getEmail()))
+                .andExpect(jsonPath("$.name").value(request.name()))
+                .andExpect(jsonPath("$.email").value(request.email()))
                 .andExpect(jsonPath("$.createAt").isNotEmpty())
                 .andExpect(jsonPath("$.password").doesNotExist());
     }
@@ -64,10 +60,7 @@ class AuthControllerIntegrationTest {
     void registerE2EFailEmailAlreadyExists() throws Exception {
         // Arrange
         registerE2ESuccess();
-        RegisterRequest request = new RegisterRequest();
-        request.setName("User Test Same Email");
-        request.setEmail("e2etest@agora.com");
-        request.setPassword("pasword0986");
+        RegisterRequest request = new RegisterRequest("User Test Same Email", "e2etest@agora.com", "pasword0986");
 
         // Act
         mockMvc.perform(post("/api/auth/register")
@@ -87,10 +80,7 @@ class AuthControllerIntegrationTest {
     void registerE2EFailInvalidEmailFormat() throws Exception {
         // Arrange
         registerE2ESuccess();
-        RegisterRequest request = new RegisterRequest();
-        request.setName("User Test Same Email");
-        request.setEmail("e2etest@com");
-        request.setPassword("pasword0986");
+        RegisterRequest request = new RegisterRequest("User Test Same Email", "e2etest@com", "pasword0986");
 
         // Act
         mockMvc.perform(post("/api/auth/register")
@@ -109,19 +99,14 @@ class AuthControllerIntegrationTest {
     @Test
     void loginE2ESuccess() throws Exception {
         // Arrange
-        RegisterRequest regRequest = new RegisterRequest();
-        regRequest.setName("Test Login");
-        regRequest.setEmail("testlogin@agora.com");
-        regRequest.setPassword("rahasia123");
+        RegisterRequest regRequest = new RegisterRequest("Test Login", "testlogin@agora.com", "rahasia123");
 
         mockMvc.perform(post("/api/auth/register")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(regRequest)))
                 .andExpect(status().isCreated());
 
-        LoginRequest loginRequest = new LoginRequest();
-        loginRequest.setEmail("testlogin@agora.com");
-        loginRequest.setPassword("rahasia123");
+        LoginRequest loginRequest = new LoginRequest("testlogin@agora.com", "rahasia123");
 
         // Act
         mockMvc.perform(post("/api/auth/login")
@@ -142,19 +127,14 @@ class AuthControllerIntegrationTest {
     @Test
     void loginE2EFailPasswordIncorrect() throws Exception {
         // Arrange
-        RegisterRequest regRequest = new RegisterRequest();
-        regRequest.setName("Test Login");
-        regRequest.setEmail("testlogin@agora.com");
-        regRequest.setPassword("rahasia123");
+        RegisterRequest regRequest = new RegisterRequest("Test Login", "testlogin@agora.com", "rahasia123");
 
         mockMvc.perform(post("/api/auth/register")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(regRequest)))
                 .andExpect(status().isCreated());
 
-        LoginRequest loginRequest = new LoginRequest();
-        loginRequest.setEmail("testlogin@agora.com");
-        loginRequest.setPassword("rahasia1234");
+        LoginRequest loginRequest = new LoginRequest("testlogin@agora.com", "rahasia1234");
 
         // Act
         mockMvc.perform(post("/api/auth/login")

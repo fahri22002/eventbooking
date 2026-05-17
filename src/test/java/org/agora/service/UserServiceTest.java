@@ -69,8 +69,8 @@ class UserServiceTest {
 
         // Assert
         assertNotNull(response);
-        assertEquals(mockUser.getName(), response.getName());
-        assertEquals(mockEmail, response.getEmail());
+        assertEquals(mockUser.getName(), response.name());
+        assertEquals(mockEmail, response.email());
         verify(userRepository, times(1)).findByEmail(mockEmail);
     }
 
